@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Navy rounded background -->
+  <rect width="64" height="64" rx="12" fill="#0d1b2a"/>
+
+  <!-- Shield fill (gold glow layer) -->
+  <path
+    d="M32 7L10 15v18c0 14 10 25.5 22 29 12-3.5 22-15 22-29V15L32 7z"
+    fill="#d4a017"
+    opacity="0.18"
+  />
+
+  <!-- Shield outline -->
+  <path
+    d="M32 7L10 15v18c0 14 10 25.5 22 29 12-3.5 22-15 22-29V15L32 7z"
+    fill="none"
+    stroke="#d4a017"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Gold checkmark -->
+  <path
+    d="M22 33l7 7 13-14"
+    stroke="#d4a017"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>
